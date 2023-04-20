@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+    <div id="app" style="display:contents">
+        <div >
+            <div class="container   p-5 bg-secondary" >
+                        <div class="row justify-content-center align-items-center"  > 
+                                <div class="col-12 col-md-4"
+                                style="background-image: url(./image/exercise.svg);background-repeat:no-repeat;background-position: center;background-size:contain;min-height:250px;
+                                ">
+                                </div>
+                            <div class="col-12 col-md-8">
+                                 <div class="row">
+                                     <div class="col-12 col-md-7">
+                                        <label for="" class="form-label">身高cm</label>
+                                        <input type="text" class="form-control"
+                                        v-model="height">
+                                        <label for="" class="form-label mt-4">體重kg</label>
+                                        <input type="text" class="form-control"
+                                        v-model="weight">
+                                     </div>
+                                     <div class="col-12 col-md-5">
+                                        <input type="button" value="看結果" class=" rounded-circle border-0  mt-5   btn-warning" style=" width:100px;height: 100px;margin-left:35%;"v-on:click="calculate">
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+            </div>
+       <!-- ------------------------------------------------- -->
+           <div>
+                <div class="h-50 d-flex flex-column justify-content-between align-items-center">
+                <h2 class="text-center">BMI 紀錄</h2>
+                <!-- ------------------------------------------------------------- -->
+                <div class="row bg-light w-50 h-25 border-bottom " v-for="item in temp"  >
+                    <div class="col-6 col-md-2 bleft-blue text-center mt-4" v-if="item.BMI<=18.5">過輕</div>
+                    <div class="col-6 col-md-2 bleft-green text-center mt-4" v-if=" 18.5<item.BMI && item.BMI<=25">理想</div>
+                    <div class="col-6 col-md-2 bleft-yellow text-center mt-4" v-if=" 25<item.BMI && item.BMI<=30">過重</div>
+                    <div class="col-6 col-md-2 bleft-FF982D text-center mt-4" v-if=" 30<item.BMI && item.BMI<=35">輕度肥胖</div>
+                    <div class="col-6 col-md-2 bleft-FF6C03 text-center mt-4" v-if=" 35<item.BMI && item.BMI<=40">中度肥胖</div>
+                    <div class="col-6 col-md-2 bleft-FF1200 text-center mt-4"  v-if=" item.BMI>40">重度肥胖</div>
+                    <div class="col-6 col-md-2 text-center mt-4" >BMI:{{item.BMI}}</div>
+                    <div class="col-6 col-md-2 text-center mt-4">身高:{{item.height}}</div>
+                    <div class="col-6 col-md-2 text-center mt-4">體重:{{item.weight}}</div>
+                     <div class="d-none d-md-block col-md-2 text-center mt-4">{{item.year}}/{{item.month}}/{{item.day}}</div>
+                </div>
+<!-- ---------------------------------------------------------------->
+                <input type="button" value="清除歷史紀錄" class="text-center w-20 d-block" v-on:click="clear">
+                </div>
+            </div>
+    </div>
+    <div class="h-30 bg-warning text-center ">
+        <img class="footer-img" src="https://hexschool.github.io/JavaScript_HomeWork/assets/BMICLogo.png">
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="js/all.js"></script>
+</body>
+</html>
+
+     
